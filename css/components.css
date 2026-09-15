@@ -1,0 +1,99 @@
+/* --- NAVIGATION --- */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-link.active {
+    color: var(--accent) !important;
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* --- SLIDE TRACK & CARDS --- */
+.slide-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+}
+
+.slide-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.slide-track::-webkit-scrollbar-thumb {
+    background: rgba(168, 162, 158, 0.3);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .slide-track {
+        scrollbar-width: none;
+        -webkit-mask: linear-gradient(to right, black 85%, transparent 100%);
+    }
+
+    .slide-track::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.slide-card {
+    min-width: 300px;
+    max-width: 400px;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
+
+/* --- BACKGROUND LAYER & HYDRATION OVERLAYS --- */
+.bg-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.bg-layer.visible-layer {
+    opacity: 1;
+}
+
+.card-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.1));
+    z-index: 10;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.card-bg-overlay.visible-overlay {
+    opacity: 1;
+}
+
+/* High-Vis Text Classes for Hydrated Cards */
+.hydrated-text {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+    position: relative;
+    z-index: 20;
+}
