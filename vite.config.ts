@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { vitePluginCmsSync } from './plugins/vite-plugin-cms-sync';
 
 export default defineConfig({
+  base: './',
   plugins: [
     react(),
     vitePluginCmsSync()
