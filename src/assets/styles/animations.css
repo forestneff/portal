@@ -1,0 +1,124 @@
+/* Reveal Physics */
+.reveal-node {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--anim-speed) cubic-bezier(0.2, 1, 0.3, 1),
+              transform var(--anim-speed) cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal-node.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.roll-item {
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roll-item.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Halos & Pulse Effects */
+.halo-base {
+  position: relative;
+  z-index: 1;
+}
+
+.halo-base::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  animation-delay: var(--pulse-delay, 0s);
+  pointer-events: none;
+}
+
+.halo-base.revealed::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.halo-gold::before {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.45) 0%, rgba(245, 158, 11, 0) 70%);
+  filter: blur(10px);
+  animation: pulseGold 4s infinite ease-in-out;
+}
+
+.halo-green::before {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.35) 0%, rgba(16, 185, 129, 0) 70%);
+  filter: blur(10px);
+  animation: pulseGreen 4s infinite ease-in-out;
+}
+
+@keyframes pulseGold {
+  0%, 100% { opacity: 0.3; transform: scale(0.98); }
+  50% { opacity: 0.8; transform: scale(1.03); }
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 0.25; transform: scale(0.98); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+
+/* Modal and Drawer transitions */
+.modal-overlay {
+  background: rgba(28, 25, 23, 0.7);
+  backdrop-filter: blur(16px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  animation: modalScale 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Click to Inspect Overlay (CMS Mode) */
+.inspectable-hover {
+  outline: 2px dashed rgba(16, 185, 129, 0.4);
+  outline-offset: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: outline-color 0.2s ease;
+}
+
+.inspectable-hover:hover {
+  outline: 2px solid var(--emerald-600);
+}
+
+.inspect-badge {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background: var(--emerald-700);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  pointer-events: none;
+}

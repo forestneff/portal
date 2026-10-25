@@ -1,0 +1,91 @@
+{
+  "id": "template-starter",
+  "version": "v1.0.0",
+  "status": "draft",
+  "title": "Clean Creator & Builder Starter",
+  "createdAt": "2026-10-24T20:00:00Z",
+  "updatedAt": "2026-10-24T20:00:00Z",
+  "config": {
+    "theme": "stone",
+    "animSpeed": "1.0s",
+    "bgImage": "",
+    "fontHead": "Playfair Display",
+    "fontBody": "Inter",
+    "lockitMode": "none"
+  },
+  "profile": {
+    "name": "Alex Mercer",
+    "title": "Creative Technologist & Product Designer",
+    "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    "email": "alex@example.com",
+    "site": "https://example.com",
+    "bio": [
+      "Designer, builder, and creative explorer crafting high-impact digital experiences.",
+      "Dedicated to simplicity, elegance, and human-centric software."
+    ],
+    "socials": [
+      { "name": "GitHub", "link": "https://github.com", "icon": "github" },
+      { "name": "LinkedIn", "link": "https://linkedin.com", "icon": "linkedin" }
+    ]
+  },
+  "personas": {
+    "nexus": {
+      "label": "Nexus",
+      "tag": "Featured Highlights",
+      "title": "Designing with Clarity, Building with Purpose.",
+      "desc": "A unified look across projects, design explorations, and technical work.",
+      "icon": "fa-sparkles",
+      "pTitle": "Featured Work",
+      "template": "slides",
+      "pContent": "Curated selections from recent client and product engagements."
+    },
+    "designer": {
+      "label": "Design",
+      "tag": "Product & Systems",
+      "title": "Crafting Interfaces That Feel Invisible.",
+      "desc": "End-to-end product design from user research and wireframing to high-fidelity design tokens.",
+      "icon": "fa-pen-nib",
+      "slideTitle": "Design Systems",
+      "template": "slides",
+      "pContent": "Reusable components and accessible color systems."
+    },
+    "builder": {
+      "label": "Engineering",
+      "tag": "Full-Stack Development",
+      "title": "Scalable Codebases for Modern Web Apps.",
+      "desc": "React, TypeScript, GraphQL, and modern web architectures.",
+      "icon": "fa-laptop-code",
+      "slideTitle": "Code Repositories",
+      "template": "gallery",
+      "pContent": "High-performance full-stack applications."
+    }
+  },
+  "portfolio": [
+    {
+      "id": 1,
+      "title": "Aura Design System",
+      "cats": ["designer", "nexus"],
+      "type": "Design System",
+      "icon": "fa-cube",
+      "featured": true,
+      "link": "https://example.com/aura",
+      "desc": "An open-source design system with 50+ accessible components built for modern teams.",
+      "assets": [{ "label": "Figma Community File", "url": "#" }]
+    },
+    {
+      "id": 2,
+      "title": "Pulse Analytics",
+      "cats": ["builder", "nexus"],
+      "type": "Web Application",
+      "icon": "fa-chart-line",
+      "featured": true,
+      "link": "https://example.com/pulse",
+      "desc": "Real-time user engagement telemetry dashboard built with React and WebSockets.",
+      "assets": [{ "label": "Live Demo", "url": "#" }]
+    }
+  ],
+  "galleries": {
+    "builder": []
+  },
+  "customPages": []
+}
